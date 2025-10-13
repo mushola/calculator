@@ -1,0 +1,69 @@
+@font-face {
+  font-family: eurostile;
+  src: url("assets/fonts/eurostile.TTF")
+}
+
+
+#frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  background-color: rgb(131, 131, 148);
+  border-style: outset;
+  border-radius: 30px;
+  border-width: 5px;
+}
+
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 400px;
+  margin: 0px;
+}
+
+#brand {
+  font-family: eurostile;
+  font-size: 50px;
+}
+
+#solar {
+  display: flex;
+  margin: 0;
+  padding: 2px;
+  background-color: darkgrey;
+  border-radius: 5px;
+}
+
+.panel {
+  list-style: none;
+  width: 30px;
+  height: 30px;
+  background-color: black;
+  border: 1px;
+  border-color: darkgrey;
+  border-style: solid;
+}
+
+#display {
+  height: 50px;
+  width: 400px;
+  background-color: #CBEFE3;
+  border-style: inset;
+  border-width: 2px;
+  border-radius: 3px;
+}
+
+#button-panel {
+  width: 400px;
+  height: 400px;
+
+}
+
+#button {
+
+}
