@@ -3,6 +3,11 @@
   src: url("assets/fonts/eurostile.TTF")
 }
 
+@font-face {
+  font-family: calcfont;
+  src: url("assets/fonts/7segment.ttf")
+}
+
 
 #frame {
   display: flex;
@@ -56,6 +61,11 @@
   border-style: inset;
   border-width: 2px;
   border-radius: 3px;
+  font-family: calcfont;
+  font-size: 50px;
+  direction:rtl;
+  text-align:justify;
+  line-height: 50px;
 }
 
 #button-panel {

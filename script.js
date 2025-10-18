@@ -4,6 +4,15 @@ let o = new String
 let display = new String
 
 
+// create solar panel
+const solarGrid = document.querySelector("#solar");
+for (i=0; i < 4; i++) {
+  let solarPanel = document.createElement("div");
+  solarPanel.classList.add("panel");
+  solarGrid.appendChild(solarPanel);
+}
+
+
 const operate = function (operator, a, b) {
   switch(operator) {
     case "+":
