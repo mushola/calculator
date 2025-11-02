@@ -4,16 +4,15 @@ const buttonArr = [["<-","","","C"],
                  ["1","2","3","−"],
                  ["0",".","=","+"]
 ]
+// TODO add plus/minus button
 const operators = ["÷", "×", "−", "+"]
 let entryMode = new Boolean;
-// TODO: Store value variables as float and only convert to string for display
-let val1 = new String;
-let val2 = new String;
+let val1 = new Number;
+let val2 = new Number;
 let oper = new String;
 const displayMax = 13;
+// TODO size display relative to displayMax
 const display = document.getElementById("display")
-
-
 
 
 // create solar panel
@@ -23,7 +22,6 @@ for (i=0; i < 4; i++) {
   solarPanel.classList.add("panel");
   solarGrid.appendChild(solarPanel);
 }
-
 
 // create button panel
 const buttonPanel = document.querySelector("#button-panel");
@@ -46,7 +44,6 @@ buttonArr.forEach(function (row) {
   })
 
 });
-
 
 
 const buttonPress = function (btn) {
@@ -84,8 +81,6 @@ const buttonPress = function (btn) {
       display.innerHTML = display.innerHTML.concat('.');
     }
   }
-
-  console.log(["entryMode: " + entryMode, "val1: " + val1, "oper: " + oper, "val2: " + val2])
 }
 
 
@@ -97,28 +92,29 @@ const turnOnEntryMode = function () {
 
 const updateDisplay = function () {
   // updates display between entry modes
-  if (entryMode) val2 = display.innerHTML;
-  val1 = operate(oper, val1, val2);
-  // TODO need to deal with number becoming larger than screen. The next
-  // line only deals with long decimals
-  display.innerHTML = val1.toString().substring(0,displayMax);
+  if (entryMode) val2 = parseFloat(display.innerHTML);
   entryMode = false;
+  val1 = operate(oper, val1, val2);
+  // TODO the following line works for decimals but not for digits left of decimal.
+  // need to include exponential form for numbers that exceed screen space.
+  display.innerHTML = val1.toString().substring(0, displayMax);
+  // if (val1.toString().replace(".","").length > displayMax) {
+  //   display.innerHTML = val1.toExponential(displayMax-6);
+  // } else {
+  //   display.innerHTML = val1.toString().substring(0, displayMax);
+  // } 
 }
 
 
 const initializeCalc = function () {
   display.innerHTML = "0";
   entryMode = true;
-  val1 = "0";
-  val2 = "0";
+  val1 = 0;
+  val2 = 0;
   oper = "";
-
 }
 
 const operate = function (operator, a, b) {
-  a = Number(a);
-  b = Number(b);
-  console.log([a,b]);
   switch(operator) {
     case "+":
       return a + b;
